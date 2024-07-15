@@ -1,0 +1,32 @@
+{% set menus=[ { "title": "Contact the Publisher", "menu": [ {
+"name":"mike@runo.com", "href": "" }, { "name":"+944 450 904 505", "href": "" },
+] }, { "title": "Explorate", "menu": [ { "name":"About", "href": "/about" }, {
+"name":"Partners", "href": "" }, { "name":"Job Opportunities", "href": "" }, {
+"name":"Advertise", "href": "" }, { "name":"Membership", "href": "" }, ] }, {
+"title": "Headquarter", "menu": [ { "name":"191 Middleville Road, NY 1001,
+Sydney, Australia", "href": "" }, ] } ] %}
+
+<footer class="w-full">
+  <div class="bg-[#212529]">
+    <div class="container flex gap-[140px] py-[106px] m-auto px-[70px]">
+      {% for item in menus %}
+      <div>
+        <p class="font-bold text-lg text-white mb-[20px]">{{item.title}}</p>
+
+        <ul class="text-white">
+          {% for link in item.menu %}
+          <li class="mb-[10px]">
+            <a href="{{link.href}}">{{link.name}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="bg-[#343A40] h-[40px] flex items-center">
+    <div class="px-[70px] container m-auto">
+      <p class="text-white">2024 | RUNO Publisher Studio</p>
+    </div>
+  </div>
+</footer>

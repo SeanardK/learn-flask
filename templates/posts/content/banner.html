@@ -1,0 +1,21 @@
+<div
+  class="h-[600px] max-w-screen bg-[url('/static/images/banner.png')] bg-center bg-cover"
+>
+  <div
+    class="container m-auto h-full flex justify-end px-[70px] py-[70px] flex-col"
+  >
+    {% for data in post %}
+    <h1 class="w-[530px] text-3xl font-bold text-white">{{data.title[0]}}</h1>
+
+    {% if data.tags[0] %}
+    <div class="mt-[30px]">
+      {% for tag in data.tags %}
+      <span
+        class="border bg-[#ffffff50] text-white rounded-md mr-2 inline-block px-2"
+        >{{tag}}</span
+      >
+      {% endfor %}
+    </div>
+    {% endif %} {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,62 @@
+{%set menus=[{"name":"Home", 'url': "/"}, { "name":"About", "url":'/about'
+},{"name":"Articles", 'url': "/posts"},{"name":"Contact Us", 'url':
+"/contact-us"},]%}
+
+<nav
+  class="top-0 transition fixed w-full max-w-screen bg-[#00000020] h-[80px] z-10"
+  id="navbar-container"
+>
+  <div
+    class="container px-[70px] m-auto h-full flex items-center justify-between"
+  >
+    <a href="/">
+      <h2 class="text-[#F8F9FA] text-xl font-bold">RUNO</h2>
+    </a>
+
+    <ul class="flex gap-[25px]">
+      {% for item in menus %}
+      <li
+        class="text-white {% if request.path == item.url %}text-red{% endif %}"
+      >
+        <a href="{{item.url}}">{{item.name}}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
+
+<button
+  id="scrollToTop"
+  class="h-[40px] bg-gray-200 rounded-full w-[40px] fixed bottom-6 right-6 flex items-center justify-center"
+>
+  <i class="fa-solid fa-arrow-up fa"></i>
+</button>
+
+<script>
+  $(document).ready(() => {
+    addEventListener("scroll", (e) => {
+      const navContainer = $("#navbar-container")[0];
+      const navItem = $("#navbar-container *");
+
+      if (window.scrollY > 520) {
+        navContainer.style.background = "white";
+        navContainer.style.boxShadow = "0px 10px 10px 0px rgba(0,0,0,0.29)";
+
+        navItem.each((element) => {
+          navItem[element].style.color = "black";
+        });
+      } else {
+        navContainer.style.background = "#00000020";
+        navContainer.style.boxShadow = "none";
+
+        navItem.each((element) => {
+          navItem[element].style.color = "white";
+        });
+      }
+    });
+
+    $("#scrollToTop").click((e) => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+</script>

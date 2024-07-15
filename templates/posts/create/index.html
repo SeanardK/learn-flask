@@ -1,0 +1,66 @@
+{% extends "page.html" %} {% block main_content %}
+<main class="min-h-screen">
+  <div class="container h-full m-auto p-[70px] pt-[150px]">
+    <form
+      class="w-full flex items-start justify-between flex-wrap [&_input]:mb-[20px]"
+      method="POST"
+      action="/posts/create"
+    >
+      <input
+        name="title"
+        id="title"
+        placeholder="Enter Title"
+        class="border rounded-md px-2 py-1 w-[calc(100%/3-10px)] h-[40px]"
+      />
+      <input
+        name="tags"
+        id="tags"
+        placeholder="Tag's"
+        class="border rounded-md px-2 py-1 w-[calc(100%/3-10px)] h-[40px]"
+      />
+      <input
+        name="image"
+        type="file"
+        id="image"
+        placeholder="image"
+        class="border rounded-md px-2 py-1 w-[calc(100%/3-10px)] h-[40px]"
+      />
+      <textarea
+        name="content"
+        id="editor"
+        placeholder="content"
+        class="border px-2 py-1 rounded-md p-1 w-full h-[50vh]"
+      ></textarea>
+
+      <div class="flex items-center mt-[30px] justify-end w-full">
+        <button
+          type="cancel"
+          class="h-[30px] mx-1 px-3 flex items-center bg-red-600 rounded-md text-white"
+        >
+          BACK
+        </button>
+        <button
+          type="reset"
+          class="h-[30px] mx-1 px-3 flex items-center bg-gray-500 rounded-md text-white"
+        >
+          RESET
+        </button>
+        <button
+          type="submit"
+          class="h-[30px] mx-1 px-3 flex items-center bg-green-600 rounded-md text-white"
+        >
+          SUBMIT
+        </button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
+<script>
+  $(document).ready(() => {
+    CKEDITOR.replace("editor");
+  });
+</script>
+{% endblock main_content %}

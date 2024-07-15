@@ -1,0 +1,24 @@
+<section class="max-w-screen">
+  <div class="container m-auto p-[70px]">
+    <h2 class="text-4xl font-bold mb-[40px]">Popular Topic's</h2>
+
+    <div class="grid gap-[20px] grid-cols-4">
+      {% for item in data %}
+      <div>
+        <img
+          class="w-full h-[300px] rounded-sm object-cover object-center"
+          src="https://www.thewitcher.com/build/images/TheWitcher3-494d7efe..webp"
+        />
+        <div class="px-2">
+          <p class="text-lg font-bold mt-2">{{item.title[0]|safe}}</p>
+          <p class="text-[#6C757D] text-xs mt-[15px]">
+            {{item.content[0]|safe}}
+          </p>
+
+          <a href="/posts" class="mt-3 block text-xs"> Read More </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
